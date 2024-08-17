@@ -89,24 +89,37 @@ namespace ToDoLIst
             }
 
             Console.WriteLine("Fecha de la tarea (dd/MM/yyyy) o deja en blanco para 'Sin fecha': ");
-            //Validamos que sea una fecha valida o este vacia
+            // Validamos que sea una fecha válida o esté vacía
             while (true)
             {
                 string fechaTexto = Console.ReadLine();
+
+                // Si la entrada está vacía, salimos del bucle
                 if (string.IsNullOrWhiteSpace(fechaTexto))
                 {
                     break;
                 }
-                else if (DateTime.TryParseExact(fechaTexto, "dd/MM/yyyy", null, System.Globalization.DateTimeStyles.None, out DateTime fechaValida))
+
+                // Intentamos analizar la fecha ingresada
+                if (DateTime.TryParseExact(fechaTexto, "dd/MM/yyyy", null, System.Globalization.DateTimeStyles.None, out DateTime fechaValida))
                 {
-                    fecha = fechaValida;
-                    break;
+                    // Verificamos que la fecha no sea anterior a la fecha actual
+                    if (fechaValida >= DateTime.Now.Date)
+                    {
+                        fecha = fechaValida;
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("La fecha no puede ser anterior a la fecha actual. Intenta nuevamente.");
+                    }
                 }
                 else
                 {
-                    Console.WriteLine("Fecha inválida");
+                    Console.WriteLine("Fecha inválida. Usa el formato dd/MM/yyyy.");
                 }
             }
+
 
             tareas.Add(new Tarea(nombre, descripcion, fecha));
             Console.WriteLine("Tarea agregada con éxito.");
