@@ -2,10 +2,10 @@
 
 internal class Tarea
 {
-    public string Nombre { get; set; }
-    public string Descripcion { get; set; }
-    public DateTime? Fecha { get; set; }
-    public bool Completada { get; private set; }
+    private string Nombre { get; set; }
+    private string Descripcion { get; set; }
+    private DateTime? Fecha { get; set; }
+    private bool Completada { get; set; }
 
     public Tarea(string nombre, string descripcion, DateTime? fecha = null)
     {

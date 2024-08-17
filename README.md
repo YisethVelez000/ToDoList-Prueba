@@ -37,3 +37,12 @@ Para ejecutar el proyecto desde Visual Studio:
 
 Asegúrate de que la solución esté compilada correctamente.
 Presiona F5 para ejecutar el proyecto en modo depuración o Ctrl+F5 para ejecutarlo sin depuración.
+
+## Funcionalidades
+**Agregar Tareas:** Añade nuevas tareas con nombre, descripción y fecha límite (opcional).
+**Listar Tareas:** Muestra todas las tareas registradas en la lista.
+**Marcar Tarea como Completada:** Marca una tarea como completada.
+**Eliminar Tarea:** Elimina una tarea de la lista.
+
+## Manejo De Errores
+El proyecto maneja errores en la entrada de datos del usuario, como fechas inválidas o índices incorrectos. Además, se incluyen mensajes de error descriptivos para guiar al usuario en caso de que ocurra un error.
